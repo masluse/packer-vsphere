@@ -47,7 +47,7 @@ source "vsphere-iso" "example_windows" {
   guest_os_type       = "windows2022srv_64Guest"
   host                = local.vsphere_host
   insecure_connection = "true"
-  iso_paths           = local.os_iso_path
+  iso_paths           = [local.os_iso_path]
   network_adapters {
     network      = local.vsphere_portgroup_name
     network_card = "vmxnet3"
