@@ -43,8 +43,8 @@ source "vsphere-iso" "example_windows" {
   winrm_username = "jetbrains"
   cd_files = [
     "./setup/Autounattend.xml",
-    "./setup/setup.ps1"
-    "./setup/vmtools.cmd"
+    "./setup/setup.ps1",
+    "./setup/vmtools.cmd",
   ]
 }
 
