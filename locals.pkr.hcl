@@ -11,5 +11,7 @@ locals {
     cpu_num = 4,
     mem_size = 8192,
     disk_size = 102400,
-    os_iso_path = ["[ISO] windows/en-us_windows_server_2022_updated_july_2023_x64_dvd_541692c3.iso"]
+    os_iso_path = [
+        "[ISO] windows/en-us_windows_server_2022_updated_july_2023_x64_dvd_541692c3.iso"
+    ]
 }
