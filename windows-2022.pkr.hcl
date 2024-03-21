@@ -44,7 +44,7 @@ source "vsphere-iso" "example_windows" {
   cd_files = [
     "./setup/Autounattend.xml",
     "./setup/setup.ps1",
-    "./setup/vmtools.cmd",
+    "./setup/vmtools.cmd"
   ]
 }
 
