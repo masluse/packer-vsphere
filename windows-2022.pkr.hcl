@@ -41,11 +41,6 @@ source "vsphere-iso" "example_windows" {
   vm_name        = "example-windows"
   winrm_password = "jetbrains*"
   winrm_username = "jetbrains"
-  cd_files = [
-    "./setup/Autounattend.xml",
-    "./setup/setup.ps1",
-    "./setup/vmtools.cmd"
-  ]
 }
 
 # a build block invokes sources and runs provisioning steps on them. The
