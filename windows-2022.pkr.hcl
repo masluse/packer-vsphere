@@ -16,31 +16,37 @@ packer {
 
 
 source "vsphere-iso" "example_windows" {
-  CPUs                 = 1
-  RAM                  = 4096
+  CPUs                 = {{user `cpu_num`}}
+  RAM                  = {{user `mem_size`}}
   RAM_reserve_all      = true
   communicator         = "winrm"
+  convert_to_template  = true
+  datastore	       = {{user `vsphere_datastore`}}
   disk_controller_type = ["pvscsi"]
-  guest_os_type        = "windows9Server64Guest"
-  host                 = "10.27.9.3"
+  firmware             = "uefi"
+  floppy_files         = ["./setup/autounattend.xml",
+                          "./setup/setup.ps1",
+                          "./setup/vmtools.ps1",
+                          ]
+  folder               = {{user `vsphere_folder`}}
+  guest_os_type        = "windows2022srv_64Guest"
+  host                 = {{user `vsphere_host`}}
   insecure_connection  = "true"
-  iso_paths            = ["[ISO] windows/en-us_windows_server_2022_updated_july_2023_x64_dvd_541692c3.iso"]
-  datastore	       = "Synology"
+  iso_paths            = {{user `os_iso_path`}}
   network_adapters {
-    network = "Lab"
+    network = {{user `vsphere_portgroup_name`}}
     network_card = "vmxnet3"
   }
   storage {
-    
-    disk_size             = 32768
+    disk_size             = {{user `disk_size`}}
     disk_thin_provisioned = true
   }
-  username       = "administrator@vsphere.local"
-  password	 = "HalloM3in*"
-  vcenter_server = "vcenter.teleport.mregli.com"
-  vm_name        = "example-windows"
-  winrm_password = "jetbrains*"
-  winrm_username = "jetbrains"
+  username       = {{user `vsphere_username`}}
+  password	 = {{user `vsphere_password`}}
+  vcenter_server = {{user `vsphere_server`}}
+  vm_name        = {{user `vsphere_template_name`}}
+  winrm_password = {{user}}
+  winrm_username = "Administrator"
 }
 
 # a build block invokes sources and runs provisioning steps on them. The
