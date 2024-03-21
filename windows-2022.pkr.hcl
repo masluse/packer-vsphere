@@ -23,7 +23,7 @@ locals {
     vsphere_host = "10.27.9.3"
     vsphere_portgroup_name = "Lab"
     vsphere_datastore = "Synology"
-    winadmin_password = "DerkleinePrinz*"
+    winrm_password = "DerkleinePrinz*"
     cpu_num = 4
     mem_size = 8192
     disk_size = 102400
@@ -36,7 +36,7 @@ source "vsphere-iso" "example_windows" {
   RAM_reserve_all      = true
   communicator         = "winrm"
   convert_to_template  = true
-  datastore            = local.vsphere_datastorel
+  datastore            = local.vsphere_datastore
   disk_controller_type = ["pvscsi"]
   firmware             = "uefi"
   floppy_files = ["./setup/autounattend.xml",
@@ -49,14 +49,14 @@ source "vsphere-iso" "example_windows" {
   insecure_connection = "true"
   iso_paths           = local.os_iso_path
   network_adapters {
-    network      = local.vsphere_network
+    network      = local.vsphere_portgroup_name
     network_card = "vmxnet3"
   }
   storage {
     disk_size             = local.disk_size
     disk_thin_provisioned = true
   }
-  username       = local.vsphere_username
+  username       = local.vsphere_user
   password       = local.vsphere_password
   vcenter_server = local.vsphere_server
   vm_name        = local.vsphere_template_name
