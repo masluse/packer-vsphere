@@ -3,7 +3,7 @@ locals {
     vsphere_user = "administrator@vsphere.local",
     vsphere_password = "HalloM3in*",
     vsphere_template_name = "win2022clone_withupdates",
-    vsphere_folder = "Windows Server 2022",
+    vsphere_folder = "Windows/Windows Server 2022",
     vsphere_host = "10.27.9.3",
     vsphere_portgroup_name = "Lab",
     vsphere_datastore = "Synology",
