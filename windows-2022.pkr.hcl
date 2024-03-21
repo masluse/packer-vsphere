@@ -44,7 +44,7 @@ source "vsphere-iso" "example_windows" {
     "./setup/vmtools.ps1",
   ]
   folder              = local.vsphere_folder
-  guest_os_type       = "windows2022srv_64Guest"
+  guest_os_type       = "windows2019srv_64Guest"
   host                = local.vsphere_host
   insecure_connection = "true"
   iso_paths           = [local.os_iso_path]
