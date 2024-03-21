@@ -16,36 +16,36 @@ packer {
 
 
 source "vsphere-iso" "example_windows" {
-  CPUs                 = {{user `cpu_num`}}
-  RAM                  = {{user `mem_size`}}
+  CPUs                 = "{{user `cpu_num`}}"
+  RAM                  = "{{user `mem_size`}}"
   RAM_reserve_all      = true
   communicator         = "winrm"
   convert_to_template  = true
-  datastore	       = {{user `vsphere_datastore`}}
+  datastore            = "{{user `vsphere_datastore`}}"
   disk_controller_type = ["pvscsi"]
   firmware             = "uefi"
-  floppy_files         = ["./setup/autounattend.xml",
-                          "./setup/setup.ps1",
-                          "./setup/vmtools.ps1",
-                          ]
-  folder               = {{user `vsphere_folder`}}
-  guest_os_type        = "windows2022srv_64Guest"
-  host                 = {{user `vsphere_host`}}
-  insecure_connection  = "true"
-  iso_paths            = {{user `os_iso_path`}}
+  floppy_files = ["./setup/autounattend.xml",
+    "./setup/setup.ps1",
+    "./setup/vmtools.ps1",
+  ]
+  folder              = "{{user `vsphere_folder`}}"
+  guest_os_type       = "windows2022srv_64Guest"
+  host                = "{{user `vsphere_host`}}"
+  insecure_connection = "true"
+  iso_paths           = "{{user `os_iso_path`}}"
   network_adapters {
-    network = {{user `vsphere_portgroup_name`}}
+    network      = "{{user `vsphere_portgroup_name`}}"
     network_card = "vmxnet3"
   }
   storage {
-    disk_size             = {{user `disk_size`}}
+    disk_size             = "{{user `disk_size`}}"
     disk_thin_provisioned = true
   }
-  username       = {{user `vsphere_username`}}
-  password	 = {{user `vsphere_password`}}
-  vcenter_server = {{user `vsphere_server`}}
-  vm_name        = {{user `vsphere_template_name`}}
-  winrm_password = {{user}}
+  username       = "{{user `vsphere_username`}}"
+  password       = "{{user `vsphere_password`}}"
+  vcenter_server = "{{user `vsphere_server`}}"
+  vm_name        = "{{user `vsphere_template_name`}}"
+  winrm_password = "{{user `vsphere_password`}}"
   winrm_username = "Administrator"
 }
 
