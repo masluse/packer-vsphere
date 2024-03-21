@@ -16,7 +16,7 @@ packer {
 
 
 source "vsphere-iso" "example_windows" {
-  CPUs                 = "{{user `cpu_num`}}"
+  CPUs                 = {{user `cpu_num`}}
   RAM                  = "{{user `mem_size`}}"
   RAM_reserve_all      = true
   communicator         = "winrm"
