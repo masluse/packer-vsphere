@@ -38,7 +38,7 @@ source "vsphere-iso" "example_windows" {
   convert_to_template  = true
   datastore            = local.vsphere_datastore
   disk_controller_type = ["pvscsi"]
-  firmware             = "uefi"
+  firmware             = "efi"
   floppy_files = ["./setup/autounattend.xml",
     "./setup/setup.ps1",
     "./setup/vmtools.ps1",
