@@ -41,7 +41,7 @@ source "vsphere-iso" "example_windows" {
   firmware             = "efi"
   floppy_files = ["./setup/autounattend.xml",
     "./setup/setup.ps1",
-    "./setup/vmtools.ps1",
+    "./setup/vmtools.cmd",
   ]
   folder              = local.vsphere_folder
   guest_os_type       = "windows2019srv_64Guest"
